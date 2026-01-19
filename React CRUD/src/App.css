@@ -1,50 +1,30 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body{
+	margin: 0;
+	padding: 0;
 }
 .outer-container {
-    display: flex;
-    flex-wrap: wrap;    
-    justify-content: center; 
-    gap: 25px;           
-    padding: 40px;
-    background-color: #f9f9f9;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers cards on the screen */
+  gap: 30px;
+  padding: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.addbtn {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px; /* Rounded pill shape */
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin: 1rem auto 30px auto;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+  transition: all 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.addbtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(145, 146, 222, 0.6);
 }
