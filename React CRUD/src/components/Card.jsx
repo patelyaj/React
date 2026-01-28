@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Card.css"
-function Card({data,deleteProduct,handleEditClick}) {
+function Card({data,deleteProduct,handleEditClick   }) {
     
     return (
         <>

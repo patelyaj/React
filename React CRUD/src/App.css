@@ -1,30 +1,35 @@
-body{
-	margin: 0;
-	padding: 0;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8fafc; /* Light gray professional background */
+  color: #1e293b;
 }
+
 .outer-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Centers cards on the screen */
+  justify-content: center;
   gap: 30px;
-  padding: 20px;
+  padding: 80px 20px 40px; /* Space for the fixed Add button */
 }
 
 .addbtn {
-  background-color: blue;
+  position: fixed;
+  top: 20px;
+  left: 45%;
+  background-color: #2563eb;
   color: white;
   border: none;
   padding: 12px 24px;
-  border-radius: 50px; /* Rounded pill shape */
-  font-weight: bold;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
-  display: block;
-  margin: 1rem auto 30px auto;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  transition: all 0.2s ease;
+  z-index: 100;
 }
 
 .addbtn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(145, 146, 222, 0.6);
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
 }

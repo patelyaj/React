@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Form.css";
 import axios from "axios";
-function Form({ setshowform ,addProduct}) {
+function Form({ setshowform, addProduct, editData, updateProduct, setEditData}) {
   const [formData, setFormData] = useState({
     title: "",
     price: "",
@@ -11,7 +11,14 @@ function Form({ setshowform ,addProduct}) {
     rating: { rate: 0, count: 0 },
   });
 
-  // Unified Change Handler
+  useEffect(()=>{
+    if (editData) {
+      setFormData(editData);
+    }
+    
+  },[editData]);
+
+  // Change Handler
   const handleChange = (e) => {
     console.log(e);
     const { name, value } = e.target;
@@ -23,24 +30,43 @@ function Form({ setshowform ,addProduct}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    try {
-        await axios.post("https://fakestoreapi.com/products",formData)
-        .then()
-        .catch();
-    
-        addProduct(formData);
-    
-        setshowform(false);
-    } catch (error) {
-        console.log("errr");  
+    // console.log(formData);
+    if (editData) {
+      try {
+        await axios.put(`https://fakestoreapi.com/products/${formData.id}`,formData);
+        
+        console.log("updated in server")
+
+          // setFormData(response.data);
+      
+          updateProduct(formData);
+          
+      } catch (error) {
+          console.log("errr",error);  
+      }
     }
+    else{
+      try {
+          await axios.post("https://fakestoreapi.com/products",formData);
+          
+          console.log("added in server");
+
+          // setFormData(response.data);
+      
+          addProduct(formData);
+      
+          
+      } catch (error) {
+          console.log("errr",error);  
+      }
+    }
+    setshowform(false);
   };
 
   return (
     <div className="form-overlay">
       <div className="form-card">
-        <h2>Add New Product</h2>
+        <h2>{editData ? "Edit Product Details" : "Add New Product"}</h2>        
         <form onSubmit={handleSubmit} className="form-content">
           <div className="input-group">
             <label>Title</label>
@@ -104,12 +130,12 @@ function Form({ setshowform ,addProduct}) {
             <button
               type="button"
               className="cancel-btn"
-              onClick={() => setshowform(false)}
+              onClick={() => {setshowform(false); if (editData) {setEditData(null)}}}
             >
               Cancel
             </button>
             <button type="submit" className="submit-btn">
-              Add Product
+              {editData ? "update Product" : "Add Product"}
             </button>
           </div>
         </form>
