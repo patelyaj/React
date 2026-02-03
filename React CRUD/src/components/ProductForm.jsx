@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Form.css";
 import axios from "axios";
-function Form({ setshowform, addProduct, editData, updateProduct, setEditData}) {
-  const [formData, setFormData] = useState({
+function Form({ setShowForm, addProduct, editData, updateProduct, setEditData}) {
+  const [formData, setFormData] = useState( editData ?? {
     title: "",
     price: "",
     description: "",
@@ -10,13 +10,6 @@ function Form({ setshowform, addProduct, editData, updateProduct, setEditData}) 
     image: "",
     rating: { rate: 0, count: 0 },
   });
-
-  useEffect(()=>{
-    if (editData) {
-      setFormData(editData);
-    }
-    
-  },[editData]);
 
   // Change Handler
   const handleChange = (e) => {
@@ -60,7 +53,7 @@ function Form({ setshowform, addProduct, editData, updateProduct, setEditData}) 
           console.log("errr",error);  
       }
     }
-    setshowform(false);
+    setShowForm(false);
   };
 
   return (
@@ -75,7 +68,7 @@ function Form({ setshowform, addProduct, editData, updateProduct, setEditData}) 
               name="title"
               value={formData.title}
               onChange={handleChange}
-              placeholder="enter title"
+              placeholder="Enter product name (e.g., Men's Casual Shirt)"
             //   required
             />
           </div>
@@ -88,7 +81,7 @@ function Form({ setshowform, addProduct, editData, updateProduct, setEditData}) 
                 name="price"
                 value={formData.price}
                 onChange={handleChange}
-                placeholder="enter price"
+                placeholder="Enter price (e.g 0.00)"
                 // required
               />
             </div>
@@ -99,7 +92,7 @@ function Form({ setshowform, addProduct, editData, updateProduct, setEditData}) 
                 name="category"
                 value={formData.category}
                 onChange={handleChange}
-                placeholder="enter category"
+                placeholder="Enter category"
               />
             </div>
           </div>
@@ -111,7 +104,7 @@ function Form({ setshowform, addProduct, editData, updateProduct, setEditData}) 
               rows="3"
               value={formData.description}
               onChange={handleChange}
-              placeholder="description.."
+              placeholder="Enter a detailed product description....."
             ></textarea>
           </div>
 
@@ -122,7 +115,7 @@ function Form({ setshowform, addProduct, editData, updateProduct, setEditData}) 
               name="image"
               value={formData.image}
               onChange={handleChange}
-              placeholder="url.."
+              placeholder="Enter url.. (e.g https://example.com/image.jpg)"
             />
           </div>
 
@@ -130,7 +123,7 @@ function Form({ setshowform, addProduct, editData, updateProduct, setEditData}) 
             <button
               type="button"
               className="cancel-btn"
-              onClick={() => {setshowform(false); if (editData) {setEditData(null)}}}
+              onClick={() => {setShowForm(false); if (editData) {setEditData(null)}}}
             >
               Cancel
             </button>

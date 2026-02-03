@@ -54,7 +54,7 @@
   margin-right: 2px;
 }
 
-.editbtn, .deletebtn {
+.edit-btn, .delete-btn {
   width: 100%;
   padding: 10px;
   border-radius: 8px;
@@ -65,13 +65,13 @@
   border: 1px solid transparent;
 }
 
-.editbtn {
+.edit-btn {
   background: #f1f5f9;
   color: #334155;
   margin-bottom: 8px;
 }
 
-.deletebtn {
+.delete-btn {
   background: #fef2f2;
   color: #ef4444;
 }

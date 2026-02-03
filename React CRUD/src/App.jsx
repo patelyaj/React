@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./App.css";
-import Card from "./components/Card";
-import Form from "./components/Form";
+import Card from "./components/ProductCard";
+import Form from "./components/ProductForm";
 function App() {
-  const [data, setdata] = useState([]);
+  const [data, setData] = useState([]);
   const [showform, setshowform] = useState(false);
 // if the data is there in edit it means it user has clicked edit 
 // if hook data is null than i tmeans user has clicked add
@@ -14,7 +14,7 @@ function App() {
       const api = async () => {
         const product = await axios.get("https://fakestoreapi.com/products");
         console.log(product.data);
-        setdata(product.data);
+        setData(product.data);
       };
       api();
     } catch (error) {
@@ -22,7 +22,7 @@ function App() {
     }
   }, []);
 
-  const showformtoggle = () => {
+  const toggleShowForm = () => {
     setEditData(null);
     setshowform(true);
   };
@@ -32,21 +32,21 @@ function App() {
     setshowform(true);
   };
 
-  const updateProduct = (updatedata)=>{
+  const updateProduct = (updateData)=>{
     const newdata = data.map((prev)=>{
-      if(updatedata.id == prev.id){
-        prev = updatedata;
+      if(updateData.id == prev.id){
+        prev = updateData;
       }
       return prev;
     })
-    setdata(newdata);
+    setData(newdata);
     setEditData(null);
   }
 
   //   add
   const addProduct = async (data) => {
     const productWithUniqueId = { ...data, id: Date.now() };
-    setdata((prev) => {
+    setData((prev) => {
       return [...prev, productWithUniqueId];
     });
   };
@@ -64,14 +64,14 @@ function App() {
       return id !== i.id;
     });
     console.log("delete called", updated);
-    setdata(updated);
+    setData(updated);
   };
 
   return (
     <>
       <div>
-        <button className="addbtn" onClick={showformtoggle}>
-          Add new
+        <button className="add-btn" onClick={toggleShowForm}>
+          Add new Product
         </button>
 
         <div className="form-container">

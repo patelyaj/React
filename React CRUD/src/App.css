@@ -13,7 +13,7 @@ body {
   padding: 80px 20px 40px; /* Space for the fixed Add button */
 }
 
-.addbtn {
+.add-btn {
   position: fixed;
   top: 20px;
   left: 45%;
@@ -29,7 +29,7 @@ body {
   z-index: 100;
 }
 
-.addbtn:hover {
+.add-btn:hover {
   background-color: #1d4ed8;
   transform: translateY(-2px);
 }

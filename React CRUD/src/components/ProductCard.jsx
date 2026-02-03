@@ -15,8 +15,8 @@ function Card({data,deleteProduct,handleEditClick   }) {
                     <div className="title">{data.title}</div>   
                     <div className='rating-rate'>{data.rating.rate}</div>
                     <div className="rating-count">{data.rating.count}</div>
-                    <button className='editbtn' onClick={()=> handleEditClick(data)} >Edit</button>
-                    <button className='deletebtn' onClick={() => deleteProduct(data.id)}>delete</button>
+                    <button className='edit-btn' onClick={()=> handleEditClick(data)} >Edit</button>
+                    <button className='delete-btn' onClick={() => deleteProduct(data.id)}>delete</button>
                 </div>
             }
         </>
