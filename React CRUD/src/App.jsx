@@ -5,8 +5,8 @@ import Card from "./components/ProductCard";
 import Form from "./components/ProductForm";
 function App() {
   const [data, setData] = useState([]);
-  const [showform, setshowform] = useState(false);
-// if the data is there in edit it means it user has clicked edit 
+  const [showform, setShowForm] = useState(false);
+// if the data is there in edit it means it user has clicked edit
 // if hook data is null than i tmeans user has clicked add
   const [editData,setEditData] = useState(null);
   useEffect(() => {
@@ -24,12 +24,12 @@ function App() {
 
   const toggleShowForm = () => {
     setEditData(null);
-    setshowform(true);
+    setShowForm(true);
   };
 
   const handleEditClick = (data) => {
     setEditData(data);
-    setshowform(true);
+    setShowForm(true);
   };
 
   const updateProduct = (updateData)=>{
@@ -77,7 +77,7 @@ function App() {
         <div className="form-container">
           {showform ? (
             // <div className="form-overlay">
-            <Form setshowform={setshowform} addProduct={addProduct} editData={editData} updateProduct={updateProduct} setEditData={setEditData}/>
+            <Form setShowForm={setShowForm} addProduct={addProduct} editData={editData} updateProduct={updateProduct} setEditData={setEditData}/>
           ) : // </div>
           null}
         </div>

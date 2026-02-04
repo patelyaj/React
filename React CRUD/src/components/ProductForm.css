@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
 /* Overlay to dim the background */
 .form-overlay {
   position: fixed;
@@ -61,7 +64,7 @@ input, textarea {
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 1rem;
-  transition: border-color 0.2s;
+  font-family: 'Inter', sans-serif;
 }
 
 input:focus, textarea:focus {

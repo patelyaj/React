@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./Form.css";
+import './ProductForm.css'
 import axios from "axios";
-function Form({ setShowForm, addProduct, editData, updateProduct, setEditData}) {
-  const [formData, setFormData] = useState( editData ?? {
+function ProductForm({ setShowForm, addProduct, editData, updateProduct, setEditData}) {
+  const [formData, setFormData] = useState( editData || {
     title: "",
     price: "",
     description: "",
@@ -10,6 +10,7 @@ function Form({ setShowForm, addProduct, editData, updateProduct, setEditData}) 
     image: "",
     rating: { rate: 0, count: 0 },
   });
+
 
   // Change Handler
   const handleChange = (e) => {
@@ -137,4 +138,4 @@ function Form({ setShowForm, addProduct, editData, updateProduct, setEditData}) 
   );
 }
 
-export default Form;
+export default ProductForm;

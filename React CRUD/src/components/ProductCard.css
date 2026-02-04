@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
 .container {
   background: #ffffff;
   max-width: 300px;
@@ -10,7 +14,11 @@
   transition: all 0.3s ease;
   border: 1px solid #e2e8f0;
 }
-
+.category {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
 .container:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
